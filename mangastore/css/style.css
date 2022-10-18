@@ -1,0 +1,133 @@
+/*direto*/
+li{list-style: none;}
+a:focus, a:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important;}
+input{border: none;}
+input:focus, input:focus {box-shadow: 0 0 0 0;outline: 0;}
+button:focus, button:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important;}
+
+/*
+
+main .link-light:hover{color: #FFFFFF;background-color: #550C77;}
+a.page-link:hover{color: #861717;}
+main .link-light{background-color: #33024A;}*/
+
+/*background*/
+.bg-gray {background: rgb(61,61,61);background: linear-gradient(90deg, rgb(19,18,18) 0%, rgb(61,61,61) 50%, rgb(19,18,18) 100%);}
+.bg-dgd{background-image: radial-gradient(#2a2a68, #18183b )}
+.bg-gray2{background: rgb(102, 102, 102);}
+.bg-header{background-color: #4700D8;}
+.bg-transparent{background-color: transparent;}
+.bg-cadastrar {background-image: url("../img/loginECadastro/Neon\ Genesis\ Evangelion.jpg");background-position: 50%;background-repeat: no-repeat;background-size:cover ;}
+.bg-login {background-image: url("../img/loginECadastro/Neon\ Genesis\ Evangelion.jpg");background-position: 50%;background-repeat: no-repeat;background-size:cover ;}
+.bg-footer{background-color: #4700D8;}
+
+/*margin*/
+.margintop {margin-top: 200px;}
+.mgdolado{margin-left: 2px;}
+.formm{border: none;padding: 0.3rem 0.0rem;margin: 0px;border-radius: 0.25rem;border-top-left-radius: 0px;border-bottom-left-radius: 0px;}
+.mgdolado{border: 0px !important;border-radius: 0px !important;box-shadow: 0 0 0 0 !important;outline: 0 !important;}
+
+
+/*height*/
+.h100{height: 100%;}
+.fh{height: 30rem;}
+.h{height: 45rem;}
+.h1 {height: 80% !important}
+.h95{height: 95%;}
+
+/*width*/
+.t10{width: 10%;}
+.t20{width: 20%;}
+.t30{width: 30%;}
+.t33{width: 33%;}
+.t34{width: 34%;}
+.t35{width: 35%;}
+.t40{width: 40%;}
+.t45{width: 45%;}
+.t50{width: 50%;}
+.t60{width: 60%;}
+.t70{width: 70%;}
+.t80{width: 80%;}
+.t90{width: 90%;}
+.t96{width: 96%;}
+.t100 {width: 100%!important;}
+.w-30{width: 30%!important;}
+
+
+/*text*/
+.txtCarrinho{text-align: justify;color: #c76a2b;}
+.page-link{color: #FFFFFF !important;border-color: #000000 !important;background-color: rgb(141, 141, 141) !important;}
+.page-link:hover{color: #861717 !important;border-color: #861717 !important;}
+.card-text{text-align: justify;}
+.fs-66{font-size: 1.15rem;}
+.fs-7{font-size: 0.90rem;}
+.fs-8{font-size: 0.75rem;}
+.textWhite{color: #FFFFFF;}
+
+/*logo*/
+.logofamily{font-family: cursive, Georgia, Times New Roman, serif;}
+.logo{width: 3.5rem;}
+.logo{width: 3.5rem;}
+
+/*icones*/
+.icon{width: 3rem;}
+.loginiconpglogin {width: 200px;border: 2px;border-color: #fff;border-radius: 3px;}
+.smphote{width: 6rem;height: 6rem;}
+.footericon{width: 2rem;}
+.foto{width: 15rem;height: 15rem;}
+
+/*slide*/
+.img-slide{object-fit: cover;object-position: 0 50%;height: 20rem;}
+.img-slide1{object-fit: cover;object-position: 0 5%;height: 20rem;}
+.img-slide2{object-fit: cover;object-position: 0 30%;height: 20rem;}
+.img-slide3{object-fit: cover;object-position: 0 10%;height: 20rem;}
+.img-slide4{object-fit: cover;object-position: 0 70%;height: 20rem;}
+
+/*card*/
+.card{background-color: rgb(102, 102, 102) !important;color: #FFFFFF;}
+.ch{height: 15rem;}
+
+/*scrollbar*/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(19,18,18) rgb(19,18,18);
+}
+*::-webkit-scrollbar {
+    width: 12px;
+}
+*::-webkit-scrollbar-track {
+    background: rgb(102, 102, 102);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(19, 18, 18, 0.5);
+    border-radius: 12px;
+    border: 0px solid rgba(19, 18, 18, 0.5);
+}
+
+/*border*/
+.bordercarrinho{border-style: solid;border-color: #2a2a68;border-radius: 0.5%;border-width: 5px;}
+.lablerg{border: 0px !important;border-radius: 0px !important;padding: 0.375rem 0.75rem !important;}
+
+/*table*/
+.tableConsultar:nth-child(odd) {
+    background: #FFFFFF22;
+  }
+.tableHeader{
+    background-color: #00000072;
+}
+/*img*/
+.imgCard{ width: 100%; height: 300px;   object-fit: cover; object-position: 0 10%;}
+/*buttons*/
+.buttonRed{background-color: #FF0000; color: #F6F6F6; border: transparent; border-radius: 5px;}
+.buttonRed:hover{background-color: #c40000; color: #F6F6F6; border: transparent; border-radius: 5px;}
+
+.buttonBlue{background-color: #0d6efd; color: #F6F6F6; border: transparent; border-radius: 5px;}
+.buttonBlue:hover{background-color: #025feb; color: #F6F6F6; border: transparent; border-radius: 5px;}
+
+.buttonsWhite{background-color: transparent; color: #F6F6F6; border: transparent;}
+.buttonsWhite:hover{background-color: transparent; color: #F6F6F6; border: transparent;}
+/*label*/
+.labelIcons{background-color: #fff;padding: 0.3rem 0.3rem;border-radius: 0.25rem;border-top-right-radius: 0px;border-bottom-right-radius: 0px;}
+/*animations*/
+@keyframes troll {from{rotate: 0deg;}to{rotate: 360deg;}}
+.troll{animation-name: troll; animation-duration: 1s; animation-play-state: running}
