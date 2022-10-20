@@ -1,5 +1,5 @@
 <?php
-    $title = "Cadastro Feito! ::";
+    $title = "Cadastro Feito!";
     include "header.php";
 
     require_once "../src/produtoDAO.php"
