@@ -18,10 +18,10 @@ require_once "funcoes.php";
             return $produtos;
         }
 
-        function consultarPorNome($nome, $s, $t, $genero){
+        function consultarPorNome($nome, $s, $t){
             $conexao = ConexaoBD::getConexao(); 
 
-            $sql = "SELECT * FROM produtos where nome LIKE'%$nome%' OR autor LIKE'%$nome%' && limit $s, $t";
+            $sql = "SELECT * FROM produtos where nome LIKE'%$nome%' OR autor LIKE'%$nome%' limit $s, $t ";
  
              $resultado = $conexao->query($sql);
              $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
