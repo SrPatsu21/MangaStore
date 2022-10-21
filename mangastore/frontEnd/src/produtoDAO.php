@@ -5,12 +5,12 @@ require_once "funcoes.php";
 
     class produtoDAO{
 
-        function consultar() {
+        function consultar($s, $t) {
            //conectar 
 
            $conexao = ConexaoBD::getConexao(); 
 
-           $sql = "SELECT * FROM produtos";
+           $sql = "SELECT * FROM produtos limit $s, $t";
 
             $resultado = $conexao->query($sql);
             $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -18,10 +18,10 @@ require_once "funcoes.php";
             return $produtos;
         }
 
-        function consultarPorNome($nome){
+        function consultarPorNome($nome, $s, $t, $genero){
             $conexao = ConexaoBD::getConexao(); 
 
-            $sql = "SELECT * FROM produtos where nome LIKE'%$nome%' OR autor LIKE'%$nome%'";
+            $sql = "SELECT * FROM produtos where nome LIKE'%$nome%' OR autor LIKE'%$nome%' && limit $s, $t";
  
              $resultado = $conexao->query($sql);
              $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
