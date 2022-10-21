@@ -13,21 +13,31 @@
                         <p class="m-0 fw-bold text-uppercase text-light">sua pesquisa de: <?= $_GET['nome']?> </p>
                         
                         <div>
-                          <label for="idgenero" class="form-label textWhite">genero</label>
-                          <select class="rounded" name="idgenero" id="idgenero">
-                              <?php
-                                  require_once "src/GeneroDAO.php";
-                                  $generoDAO = new generoDAO();
+                          <input type="checkbox" class="form-check-input" id="idCategorias">
+                            <script>
+                              categoria = window.document.querySelector("#idCategorias");
+                              check = window.document.querySelector("#check");
+                              if (categoria.checked == true) {
+                                check.style.visibility = "true";
+                              }
+                            </script>
+                                      <div id="check" class="checkbox">
+                                        <label for="idgenero" class="form-label textWhite">genero</label>
+                                        <select class="rounded" name="idgenero" id="idgenero">
+                                          <?php
+                                          require_once "src/GeneroDAO.php";
+                                          $generoDAO = new generoDAO();
 
-                                  $idsgenero = $generoDAO->consultarGeneros();
+                                          $idsgenero = $generoDAO->consultarGeneros();
 
-                                  foreach($idsgenero as $genero){
-                                      echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
-                                  }
-
-                              ?>
-                          </select>'
-                        </div>
+                                          foreach($idsgenero as $genero){
+                                            echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                          }
+                                    ?>
+                                  </select>
+                              </div>
+                          </div>
+                      
                       </div>
 
                       <div class="d-flex row justify-content-start">

@@ -138,3 +138,5 @@ main .link-light{background-color: #33024A;}*/
 /*animations*/
 @keyframes troll {from{rotate: 0deg;}to{rotate: 360deg;}}
 .troll{animation-name: troll; animation-duration: 1s; animation-play-state: running}
+/*visible*/
+.checkbox{visibility: hidden;}
