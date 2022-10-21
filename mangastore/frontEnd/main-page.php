@@ -79,7 +79,7 @@ include "header.php";
                             <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
                               <div class="d-flex flex-wrap">
                                     <div class="card-body ch">
-                                      <p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase borderBottomName" style="width: 100%; height:3rem;"><?=$produtosPorDesconto["nome"]?></p>
+                                      <p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase borderBottomName" style="width: 100%; height:3rem;"><?=$produto["nome"]?></p>
                                       <p class="fs-6 fw-bold m-1">volume: <?=$produto['volume']?></p>
                                       <p class="fs-6 fw-bold m-1">Valor: R$<?=$produto['valor']?></p>        
                                     </div>                                   
