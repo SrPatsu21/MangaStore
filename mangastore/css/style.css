@@ -20,6 +20,7 @@ main .link-light{background-color: #33024A;}*/
 .bg-cadastrar {background-image: url("../img/loginECadastro/Neon\ Genesis\ Evangelion.jpg");background-position: 50%;background-repeat: no-repeat;background-size:cover ;}
 .bg-login {background-image: url("../img/loginECadastro/Neon\ Genesis\ Evangelion.jpg");background-position: 50%;background-repeat: no-repeat;background-size:cover ;}
 .bg-footer{background-color: #4700D8;}
+.bg-cardBoder{background-color: #171717;}
 
 /*margin*/
 .margintop {margin-top: 200px;}
@@ -34,6 +35,7 @@ main .link-light{background-color: #33024A;}*/
 .h{height: 45rem;}
 .h1 {height: 80% !important}
 .h95{height: 95%;}
+.hAuto{height: auto;}
 
 /*width*/
 .t10{width: 10%;}
@@ -46,6 +48,7 @@ main .link-light{background-color: #33024A;}*/
 .t45{width: 45%;}
 .t49{width: 49%;}
 .t495{width: 49.5%;}
+.t4975{width: 49.75%;}
 .t50{width: 50%;}
 .t60{width: 60%;}
 .t70{width: 70%;}
