@@ -19,25 +19,6 @@
                         </div>
                         
                         <div>
-                          <input type="checkbox" class="form-check-input" id="idCategorias">
-                            <script>
-                              categoria = window.document.querySelector("#idCategorias");
-
-                              check = window.document.getElementById(check);
-
-                              function checkBoxHiden () {
-                                if (categoria.checked == true){
-                                  check.style.visibility = "true";
-                                  window.alert;
-                                }else{
-                                  window.alert;
-
-                                check.style.visibility = "true";
-                                }
-                                }
-                              categoria.addEventListener("onclick", checkBoxHiden);
-                            </script>
-                                  <div id="check" class="checkbox">
                                     <label for="idgenero" class="form-label textWhite">genero</label>
                                     <select class="rounded" name="idgenero" id="idgenero">
                                           <?php
@@ -45,13 +26,13 @@
                                           $generoDAO = new generoDAO();
 
                                           $idsgenero = $generoDAO->consultarGeneros();
-
+                                            echo "<option value=''>--------</option>";
                                           foreach($idsgenero as $genero){
                                             echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
                                           }
+                                            echo "<option value=''>--------</option>";
                                           ?>
                                       </select>
-                                  </div>
                           </div>
                       
                       </div>
@@ -74,7 +55,7 @@
 
                           foreach ($produtos as $produto):
 
-                            ?>
+                        ?>
 
                             <div class="col-3 p-3">
 
