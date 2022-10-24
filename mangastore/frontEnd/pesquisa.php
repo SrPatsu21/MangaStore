@@ -18,36 +18,34 @@
                         ?>
                         </div>
                         
-                        <div>
-                                    <label for="idgenero" class="form-label textWhite">genero</label>
-                                    <select class="rounded" name="idgenero" id="idgenero">
-                                          <?php
-                                          require_once "src/GeneroDAO.php";
-                                          $generoDAO = new generoDAO();
-
-                                          $idsgenero = $generoDAO->consultarGeneros();
-                                            echo "<option value=''>--------</option>";
-                                          foreach($idsgenero as $genero){
-                                            echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
-                                          }
-                                            echo "<option value=''>--------</option>";
-                                          ?>
-                                      </select>
-                          </div>
-                      
-                      </div>
+                          <select class="rounded" name="idgenero" id="idgenero">
+                          <?php
+                          require_once "src/GeneroDAO.php";
+                            $generoDAO = new generoDAO();
+                          $idsgenero = $generoDAO->consultarGeneros();
+                            echo "<option value=''>--------</option>";
+                          foreach($idsgenero as $genero){
+                            echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                          }
+                           echo "<option value=''>--------</option>";
+                          ?>
+                          </select>
 
                       <div class="d-flex row justify-content-start">
 
                         
                         <?php
-                        
+                        echo $genero['idgeneros'];
                         $s = 0;
                         $t = 3;
 
                         if (isset($_GET['nome']) && $_GET['nome']!= null){
-
+                           
+                           if (true == true) {
                             $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t);
+                           } else {
+                            $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t, $genero);
+                           }
                         
                         }else{
                             $produtos = $produtoDAO->consultar($s, $t);
