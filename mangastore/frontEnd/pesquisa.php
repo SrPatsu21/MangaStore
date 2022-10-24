@@ -17,19 +17,8 @@
                         } 
                         ?>
                         </div>
-                        
-                          <select class="rounded" name="idgenero" id="idgenero">
-                          <?php
-                          require_once "src/GeneroDAO.php";
-                            $generoDAO = new generoDAO();
-                          $idsgenero = $generoDAO->consultarGeneros();
-                            echo "<option value=''>--------</option>";
-                          foreach($idsgenero as $genero){
-                            echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
-                          }
-                           echo "<option value=''>--------</option>";
-                          ?>
-                          </select>
+                      
+                      </div>
 
                       <div class="d-flex row justify-content-start">
 
@@ -44,7 +33,7 @@
                            if (true == true) {
                             $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t);
                            } else {
-                            $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t, $genero);
+
                            }
                         
                         }else{
