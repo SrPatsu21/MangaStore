@@ -4,7 +4,7 @@ a:focus, a:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important;}
 input{border: none;}
 input:focus, input:focus {box-shadow: 0 0 0 0;outline: 0;}
 button:focus, button:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important;}
-
+#idgenero, #idgenero:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important; border-style: none; color: #F6F6F6;}
 /*
 
 main .link-light:hover{color: #FFFFFF;background-color: #550C77;}
@@ -139,3 +139,5 @@ main .link-light{background-color: #33024A;}*/
 @keyframes troll {from{rotate: 0deg;}to{rotate: 360deg;}}
 .troll{animation-name: troll; animation-duration: 1s; animation-play-state: running}
 /*visible*/
+
+/**/
