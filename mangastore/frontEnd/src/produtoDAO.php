@@ -28,6 +28,16 @@ require_once "funcoes.php";
              
              return $produtos;
         }
+        function consultarPorNomeEGenero($nome, $s, $t, $genero){
+            $conexao = ConexaoBD::getConexao(); 
+
+            $sql = "SELECT * FROM produtos where idgenero = $genero AND nome LIKE'%$nome%' OR autor LIKE'%$nome%' limit $s, $t";
+ 
+             $resultado = $conexao->query($sql);
+             $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+             
+             return $produtos;
+        }
 
         function consultarPrincipal($s, $t) {
             //conectar 

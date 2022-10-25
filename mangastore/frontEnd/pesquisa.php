@@ -24,15 +24,15 @@
 
                         
                         <?php
-                        echo $genero['idgeneros'];
                         $s = 0;
-                        $t = 3;
+                        $t = 8;
 
                         if (isset($_GET['nome']) && $_GET['nome']!= null){
                            
-                           if (true == true) {
-                            $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t);
+                           if (isset($_GET['idgenero']) && $_GET['idgenero']!= null) {
+                            $produtos = $produtoDAO->consultarPorNomeEGenero($_GET['nome'], $s, $t, $_GET['idgenero']);
                            } else {
+                            $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t);
 
                            }
                         
