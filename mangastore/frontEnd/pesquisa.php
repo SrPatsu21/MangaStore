@@ -33,11 +33,14 @@
                             $produtos = $produtoDAO->consultarPorNomeEGenero($_GET['nome'], $s, $t, $_GET['idgenero']);
                            } else {
                             $produtos = $produtoDAO->consultarPorNome($_GET['nome'], $s, $t);
-
                            }
                         
                         }else{
+                          if (isset($_GET['idgenero']) && $_GET['idgenero']!= null) {
+                            $produtos = $produtoDAO->consultarPorGenero($s, $t, $_GET['idgenero']);
+                          } else {
                             $produtos = $produtoDAO->consultar($s, $t);
+                          }
                         }
 
                           foreach ($produtos as $produto):

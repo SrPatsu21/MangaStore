@@ -21,17 +21,28 @@ require_once "funcoes.php";
         function consultarPorNome($nome, $s, $t){
             $conexao = ConexaoBD::getConexao(); 
 
-            $sql = "SELECT * FROM produtos where nome LIKE'%$nome%' OR autor LIKE'%$nome%' limit $s, $t ";
+            $sql = "SELECT * FROM produtos where nome LIKE'%$nome%' || autor LIKE'%$nome%' limit $s, $t ";
  
              $resultado = $conexao->query($sql);
              $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
              
              return $produtos;
         }
+        function consultarPorGenero($s, $t, $genero){
+            $conexao = ConexaoBD::getConexao(); 
+
+            $sql = "SELECT * FROM produtos where idgenero = $genero limit $s, $t";
+ 
+             $resultado = $conexao->query($sql);
+             $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+             
+             return $produtos;
+        }
+
         function consultarPorNomeEGenero($nome, $s, $t, $genero){
             $conexao = ConexaoBD::getConexao(); 
 
-            $sql = "SELECT * FROM produtos where idgenero = $genero AND nome LIKE'%$nome%' OR autor LIKE'%$nome%' limit $s, $t";
+            $sql = "SELECT * FROM produtos where idgenero = $genero && (nome LIKE'%$nome%' || autor LIKE'%$nome%') limit $s, $t";
  
              $resultado = $conexao->query($sql);
              $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
