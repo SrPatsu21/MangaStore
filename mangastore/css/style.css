@@ -4,7 +4,8 @@ a:focus, a:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important;}
 input{border: none;}
 input:focus, input:focus {box-shadow: 0 0 0 0;outline: 0;}
 button:focus, button:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important;}
-
+#idgenero, #idgenero:focus{box-shadow: 0 0 0 0 !important;outline: 0 !important; border-style: none; color: #F6F6F6;}
+#idgenero:hover{background-color: transparent;}
 /*
 
 main .link-light:hover{color: #FFFFFF;background-color: #550C77;}
@@ -20,6 +21,7 @@ main .link-light{background-color: #33024A;}*/
 .bg-cadastrar {background-image: url("../img/loginECadastro/Neon\ Genesis\ Evangelion.jpg");background-position: 50%;background-repeat: no-repeat;background-size:cover ;}
 .bg-login {background-image: url("../img/loginECadastro/Neon\ Genesis\ Evangelion.jpg");background-position: 50%;background-repeat: no-repeat;background-size:cover ;}
 .bg-footer{background-color: #4700D8;}
+.bg-cardBoder{background-color: #171717;}
 
 /*margin*/
 .margintop {margin-top: 200px;}
@@ -34,6 +36,7 @@ main .link-light{background-color: #33024A;}*/
 .h{height: 45rem;}
 .h1 {height: 80% !important}
 .h95{height: 95%;}
+.hAuto{height: auto;}
 
 /*width*/
 .t10{width: 10%;}
@@ -46,6 +49,7 @@ main .link-light{background-color: #33024A;}*/
 .t45{width: 45%;}
 .t49{width: 49%;}
 .t495{width: 49.5%;}
+.t4975{width: 49.75%;}
 .t50{width: 50%;}
 .t60{width: 60%;}
 .t70{width: 70%;}
@@ -87,7 +91,8 @@ main .link-light{background-color: #33024A;}*/
 
 /*card*/
 .card{background-color: rgb(102, 102, 102) !important;color: #FFFFFF;}
-.ch{height: 15rem;}
+.ch{height: 8rem;}
+.borderBottomName{border-style: double; border-color: #171717; border-width: 0px; border-bottom-width: 3px;}
 
 /*scrollbar*/
 * {
@@ -109,6 +114,7 @@ main .link-light{background-color: #33024A;}*/
 /*border*/
 .bordercarrinho{border-style: solid;border-color: #2a2a68;border-radius: 0.5%;border-width: 5px;}
 .lablerg{border: 0px !important;border-radius: 0px !important;padding: 0.375rem 0.75rem !important;}
+.borderLeftWhite{border-color: #F6F6F6 !important; border-style: double !important; border-width: 0px !important;border-right-width: 1px !important;}
 
 /*table*/
 .tableConsultar:nth-child(odd) {
@@ -134,3 +140,6 @@ main .link-light{background-color: #33024A;}*/
 /*animations*/
 @keyframes troll {from{rotate: 0deg;}to{rotate: 360deg;}}
 .troll{animation-name: troll; animation-duration: 1s; animation-play-state: running}
+/*visible*/
+
+/**/

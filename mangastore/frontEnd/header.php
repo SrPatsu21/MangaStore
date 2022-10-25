@@ -1,5 +1,8 @@
 <?php 
 
+session_start();
+
+
 require_once "src/produtoDAO.php";
 
 
@@ -36,8 +39,22 @@ $produtoDAO = new produtoDAO();
                     <div class="t33 d-flex align-items-center justify-content-center">
 
                     <form class="d-flex align-items-center justify-content-between t100 border border-light border-2 rounded-pill" action="pesquisa.php">
-                        <input class="border-0 m-0 t90 bg-transparent text-light fw-bold me-2 ps-3" type="search " name="nome" placeholder="PESQUISAR... " value="<?php if (isset($_GET['nome'])) {echo    $_GET['nome'];}else {echo '';}?>" aria-label="Search">
-                        <button class="bg-transparent border-0 t10 d-flex align-items-center justify-content-center border-start border-start-2 border-light" type="submit"><img src="../img/principal/search.svg" class="" alt=""></button>
+                        <input class="m-0 t90 bg-transparent text-light fw-bold ps-3 borderLeftWhite" type="search " name="nome" placeholder="PESQUISAR... " value="<?php if (isset($_GET['nome'])) {echo    $_GET['nome'];}else {echo '';}?>" aria-label="Search">
+                        
+                                    <select class="h100 bg-transparent borderLeftWhite" name="idgenero" id="idgenero">
+                                          <?php
+                                          require_once "src/GeneroDAO.php";
+                                          $generoDAO = new generoDAO();
+
+                                          $idsgenero = $generoDAO->consultarGeneros();
+                                            echo "<option value=''>-generos-</option>";
+                                          foreach($idsgenero as $genero){
+                                            echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                          }
+                                          ?>
+                                    </select>
+
+                        <button class="bg-transparent border-0 t10 d-flex align-items-center justify-content-center " type="submit"><img src="../img/principal/search.svg" class="" alt=""></button>
                     </form>
 
                     </div>
