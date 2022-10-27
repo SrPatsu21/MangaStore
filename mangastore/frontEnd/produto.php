@@ -30,7 +30,7 @@ if (!isset($produto['nome'])) {
                                         
                                         <div class="t100 mt-auto">
                                             <div class="pe-2 ps-2 align-items-center d-flex justify-content-between align-items-center t100 mb-auto" style="height: 3rem;">
-                                            <a href="#" class="t100 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">ADD ao carrinho</p></a>
+                                            <a href="#" class="t100 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center">ADD ao carrinho</p></a>
                                         </div>
                              </div>
                             </div>

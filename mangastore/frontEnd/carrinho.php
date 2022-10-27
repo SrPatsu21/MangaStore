@@ -1,6 +1,12 @@
 <?php
     $title = "carrinho";
     include "header.php";
+
+    $idproduto = $_POST['idproduto'];
+    $operacao = $_POST['operacao'];
+
+    echo $idproduto;
+    echo $operacao;
 ?>
     
     <main style="height: 95vh;" class=" t100 d-flex justify-content-center align-items-center py-3">
