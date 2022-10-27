@@ -6,9 +6,22 @@
                         
                       <main class="container mt-3 text-dark mb-3" style="min-height: 80vh;">
 
-                      <div class=" mt-4 t100 border border-1 border-light"></div>
-
                       <div class=" d-flex justify-content-evenly align-items-center mt-1">
+
+                        <form class="d-flex align-items-center justify-content-center">
+                          <select class="h100 bg-transparent" name="idgenero" id="idgenero">
+                              <?php
+                                    require_once "src/GeneroDAO.php";
+                                    $generoDAO = new generoDAO();
+                                    $idsgenero = $generoDAO->consultarGeneros();
+                                    echo "<option class='bg-transparent' value=''>-generos-</option>";
+                                  foreach($idsgenero as $genero){
+                                    echo "<option value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                }
+                              ?>
+                          </select>
+                        </form>
+
                         <div>
                         <?php if (isset($_GET['nome'])) {
                         ?>
