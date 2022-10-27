@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
 if (!isset($produto['nome'])) {
 ?>
  <main class="container t100 d-flex justify-content-cente mb-4" style="height: 85vh;">
- <p class="mt-5 fs-1">produto nao existe ou nao pode ser encontrado</p>
+ <p class="mt-5 fs-1">PRODUTO NÃO EXISTE OU NÃO PODE SER ENCONTRADO</p>
  </main>
 <?php
 } else{

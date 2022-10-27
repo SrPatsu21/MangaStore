@@ -2,11 +2,22 @@
     $title = "carrinho";
     include "header.php";
 
-    $idproduto = $_POST['idproduto'];
-    $operacao = $_POST['operacao'];
+    $idproduto = $_POST['idproduto']??null;
+    $operacao = $_POST['operacao']??null;
 
     echo $idproduto;
     echo $operacao;
+
+    $carrinho = $_SESSION['carrinho']??[];
+
+    if ($operacao == "inserir") {
+
+        $item['idproduto'] = $idproduto;
+        $item["quantidade"] = 1;
+        $carrinho[] = $item;
+    }
+
+    $_SESSION['carrinho'] = $carrinho;
 ?>
     
     <main style="height: 95vh;" class=" t100 d-flex justify-content-center align-items-center py-3">
@@ -21,17 +32,21 @@
                     <div class="border border-2 border-dark rounded-2"></div>
                 </div>
                 <!-- sequencia de teste-->
+                <?php
+                $produtoDAO = new produtoDAO();
+                foreach ($carrinho as $item):
+                    $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
+                ?>
+                    <div class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
 
-                <div class="">
-                    <div class="mt-3 t100 d-flex justify-content-start align-items-center p-0 border border-2 border-dark rounded-2">
-
-                            <div class="me-3 border-end border-end-2 border-dark"> <img src="../img/principal/fullmetal-alchemist-brotherhood-4.webp" class="smphote"  alt=""></div>
-                        
-                            <input type="checkbox" name="i1t" id="i1tid">
-                            <label for="i1tid" class="form-check-label bg-transparent text-dark ms-1">texto criado pelo programa</label>
-
+                            <div class="me-3 border-end border-end-2 border-dark"> <img src="../img/principal/fullmetal-alchemist-brotherhood-4.webp" class="smphote" alt=""></div>
+                            <label for="i1tid" class="form-check-label bg-transparent text-dark ms-1"><?= $produtoItem['nome']?></label>
+                            <!-- quantidade esta em item -->
+                            <button>remover</button>
                     </div>
-                </div>
+                <?php
+                endforeach;
+                ?>
 
             </div>
 
