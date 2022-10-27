@@ -16,6 +16,7 @@ if (!isset($produto['nome'])) {
     <main class="container t100 d-flex justify-content-cente mb-4" style="min-height: 85vh;">
         <div class="container d-flex flex-column mt-3 h100 p-1 rounded bg-cardBoder">
                 <div>
+                    <form action="carrinho.php" method="POST">
                         <div class="d-flex justify-content-between align-items-stretch h100">
 
                             <img class="imgCardProduto bg-gray2 t4975 h100 p-2 rounded" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
@@ -30,10 +31,11 @@ if (!isset($produto['nome'])) {
                                         
                                         <div class="t100 mt-auto">
                                             <div class="pe-2 ps-2 align-items-center d-flex justify-content-between align-items-center t100 mb-auto" style="height: 3rem;">
-                                            <a href="#" class="t100 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center">ADD ao carrinho</p></a>
+                                            <button type="submit" class="t50 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">ADD ao carrinho</p></button>
                                         </div>
                              </div>
                             </div>
+                    </form>
                 </div>
 
             </div>

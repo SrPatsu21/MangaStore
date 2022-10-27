@@ -14,7 +14,7 @@
 
         $item['idproduto'] = $idproduto;
         $item["quantidade"] = 1;
-        $carrinho[] = $item;
+        $carrinho[] = $carrinho;
     }
 
     $_SESSION['carrinho'] = $carrinho;
