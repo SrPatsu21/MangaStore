@@ -66,9 +66,7 @@
                               </form>
                             </div>
 
-                            <?php
-
-
+                        <?php
                           endforeach;
                         ?>
                       </div>

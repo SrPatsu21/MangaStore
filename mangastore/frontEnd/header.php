@@ -47,7 +47,13 @@ $produtoDAO = new produtoDAO();
                                     $idsgenero = $generoDAO->consultarGeneros();
                                     echo "<option class='text-danger' value=''>-sem genero-</option>";
                                   foreach($idsgenero as $genero){
-                                    echo "<option class='text-dark' value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+
+                                        if ($genero['idgeneros'] == $_GET['idgenero']) {
+                                            echo "<option class='text-dark' selected value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+
+                                        }else {
+                                            echo "<option class='text-dark' value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                        }
                                 }
                               ?>
                           </select>
