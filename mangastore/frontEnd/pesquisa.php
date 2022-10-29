@@ -5,7 +5,7 @@
                         
                       <main class="container mt-3 text-dark mb-3" style="min-height: 80vh;">
 
-                      <div class=" d-flex justify-content-evenly align-items-center mt-1 border-bottom">
+                      <div class="d-flex justify-content-evenly align-items-center mt-1 border-bottom">
                         <div>
                         <?php if (isset($_GET['nome'])) {
                         ?>
@@ -69,6 +69,26 @@
                         <?php
                           endforeach;
                         ?>
+                        <!-- ir para proxima pagina -->
+                        
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <button name="" type="button" onclick="lessOne()"><-</button>
+                                    <input class="mx-2" name="pgNumber" type="number" value="1">
+                                    <button type="button" onclick="moreOne()">-></button>
+                                </div>
+                                <script>
+                                  var pgNumber = window.document.getElementsByName("pgNumber");
+                                  function moreOne(){
+                                    pgNumber.values ++;
+                                    window.alert("aaa");
+
+                                  }
+                                  function lessOne() {
+                                    pgNumber.values --;
+                                    window.alert("aaa");
+
+                                  }
+                                </script>
                       </div>
                       </main>
                         <?php 
