@@ -72,18 +72,19 @@
                         <!-- ir para proxima pagina -->
                         
                                 <div class="d-flex justify-content-center align-items-center">
-                                    <button name="" type="button" onclick="lessOne()"><-</button>
+                                    <button name="" type="button" onclick="lessOne(pgNumber)"><-</button>
                                     <input class="mx-2" name="pgNumber" type="number" value="1">
-                                    <button type="button" onclick="moreOne()">-></button>
+                                    <button type="button" onclick="moreOne(pgNumber)">-></button>
                                 </div>
                                 <script>
                                   var pgNumber = window.document.getElementsByName("pgNumber");
-                                  function moreOne(){
-                                    pgNumber.values ++;
-                                    window.alert("aaa");
+                                  function moreOne(pgNumber){
+                                    var a = pgNumber.value;
+                                    pgNumber.style.backgrounfColor = black;
+                                    window.alert(a);
 
                                   }
-                                  function lessOne() {
+                                  function lessOne(pgNumber) {
                                     pgNumber.values --;
                                     window.alert("aaa");
 
