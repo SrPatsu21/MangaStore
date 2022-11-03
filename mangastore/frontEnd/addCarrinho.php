@@ -22,13 +22,19 @@
 
     }else if ($operacao == "remover") {
 
+        $item['idproduto'] = $idproduto;
+        $item["quantidade"] = 1;
+
         for ($i=0; $i <= array_key_last($carrinho); $i++) { 
             $item = $carrinho[$i]??null;
             if ($item != null && $item['idproduto'] == $idproduto) {
                 unset($carrinho[$i]);
             }
+        $carrinho[] = $item;
+        $_SESSION['carrinho'] = $carrinho;
+
         }
-        header ($last_link);
+        header ("Location:carrinho.php");
     }
 
    
