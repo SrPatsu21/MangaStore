@@ -1,23 +1,6 @@
 <?php
     $title = "carrinho";
     include "header.php";
-
-    $idproduto = $_POST['idproduto']??null;
-    $operacao = $_POST['operacao']??null;
-
-    echo $idproduto;
-    echo $operacao;
-
-    $carrinho = $_SESSION['carrinho']??[];
-
-    if ($operacao == "inserir") {
-
-        $item['idproduto'] = $idproduto;
-        $item["quantidade"] = 1;
-        $carrinho[] = $item;
-    }
-
-    $_SESSION['carrinho'] = $carrinho;
 ?>
     
     <main style="height: 95vh;" class=" t100 d-flex justify-content-center align-items-center py-3">
@@ -28,12 +11,18 @@
             <div class="col-8 container d-flex flex-column bg-light border-end border-end-2 border-dark overflow-auto h100">
 
                 <div class="mt-2">
-                    <p class="m-0 fw-bold"> estao em seu carrinho...</p>
+                    <p class="m-0 fw-bold text-black"> estao em seu carrinho...</p>
                     <div class="border border-2 border-dark rounded-2"></div>
                 </div>
                 <!-- sequencia de teste-->
                 <?php
+
+                //require_once "addCarrinho.php";
                 $produtoDAO = new produtoDAO();
+
+                $carrinho = $_SESSION['carrinho']??[];
+                $last_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
                 foreach ($carrinho as $item):
                     $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
                 ?>
@@ -42,7 +31,8 @@
                             <div class="me-3 border-end border-end-2 border-dark"> <img src="data:image/png;base64,<?=base64_encode($produtoItem['imagem'])?>" class="smphote" alt=""></div>
                             <label for="i1tid" class="form-check-label bg-transparent text-dark ms-1"><?= $produtoItem['nome']?></label>
                             <!-- quantidade esta em item -->
-                            <button>remover</button>
+
+                            <a href="addCarrinho.php?idproduto=<?=$item['idproduto']?>&operacao=remover&last_link=<?=$last_link?>" class="">remover</a>
                     </div>
                 <?php
                 endforeach;

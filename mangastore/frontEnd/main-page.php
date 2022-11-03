@@ -30,7 +30,7 @@ include "header.php";
                               <div class="col-3 p-3">
 
                                 <div class="card t100 border-2 border-light ">
-                                <form action="carrinho.php" method="POST">
+                                <form action="addCarrinho.php" method="POST">
                                   <input type="hidden" name="idproduto" value="<?=$produto['idprodutos']?>" >
                                   <input type="hidden" name="operacao" value="inserir">
                                   <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
@@ -50,7 +50,7 @@ include "header.php";
                               </div>
 
                               <?php
-
+ 
 
                             endforeach;
                           ?>
@@ -79,7 +79,7 @@ include "header.php";
                           <div class="col-3 p-3">
 
                             <div class="card t100 border-2 border-light ">
-                            <form action="carrinho.php" method="POST">
+                            <form action="addCarrinho.php" method="POST">
                                 <input type="hidden" name="idproduto" value="<?=$produto['idprodutos']?>" >
                                 <input type="hidden" name="operacao" value="inserir">
                                 <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
