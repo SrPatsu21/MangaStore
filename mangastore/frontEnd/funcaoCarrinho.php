@@ -1,17 +1,18 @@
 <?php
     function insertIntoCarrinho($idproduto){
-        session_start();
-        $carrinho = $_SESSION['carrinho']??[];
-        /*acao*/
-        $item['idproduto'] = $idproduto;
-        $item["quantidade"] = 1;
-        $carrinho[] = $item;
-        /*enviar para a session*/
+        if ($idproduto != 0 || null) {
+            $carrinho = $_SESSION['carrinho']??[];
+            /*acao*/
+            $item['idproduto'] = $idproduto;
+            $item["quantidade"] = 1;
+            $carrinho[] = $item;
+            /*enviar para a session*/
+            var_dump ($carrinho);
+            $_SESSION['carrinho'] = $carrinho;
+        }
 
-        return $_SESSION['carrinho'] = $carrinho;
     }
     function removeIntoCarrinho($idproduto){
-        session_start();
         $carrinho = $_SESSION['carrinho']??[];
         /*acao*/
         $item['idproduto'] = $idproduto;
@@ -24,7 +25,7 @@
         $carrinho[] = $item;
         /*enviar para a session*/
         
-        return $_SESSION['carrinho'] = $carrinho;
+        $_SESSION['carrinho'] = $carrinho;
     }
 
 ?>
