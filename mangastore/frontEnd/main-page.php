@@ -1,6 +1,7 @@
 <?php
  $title = "Home";
 include "header.php";
+include "funcaoCarrinho.php";
 ?>
 
     <main class="container mt-3 text-dark mb-3" style="min-height: 80vh;">
@@ -30,9 +31,6 @@ include "header.php";
                               <div class="col-3 p-3">
 
                                 <div class="card t100 border-2 border-light ">
-                                <form action="addCarrinho.php" method="POST">
-                                  <input type="hidden" name="idproduto" value="<?=$produto['idprodutos']?>" >
-                                  <input type="hidden" name="operacao" value="inserir">
                                   <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
                                     <div class="d-flex flex-wrap">
                                           <div class="card-body ch">
@@ -42,10 +40,9 @@ include "header.php";
                                           </div>                                   
                                           <div class="pe-2 ps-2 align-items-center d-flex justify-content-between align-items-center t100  " style="height: 3rem;">
                                             <a href="produto.php?id=<?=$produto['idprodutos']?>" class="t50 d-flex justify-content-center align-items-center me-2 rounded-3 text-decoration-none text-uppercase buttonBlue p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">saiba mais...</p></a>
-                                            <button type="submit" class="t50 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">ADD ao carrinho</p></button>
+                                            <button class="t50 d-flex justify-content-center align-items-center ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;" onclick="insertIntoCarrinho(<?=$produto['idprodutos']?>)"><p class="fs-8 fw-bold m-0 text-center">ADD ao carrinho</p></button>
                                           </div>
                                     </div>
-                                </form>                                  
                                 </div>
                               </div>
 
@@ -73,13 +70,13 @@ include "header.php";
                             $produtos = $produtoDAO->consultarPrincipal(0,6);
 
                           foreach ($produtos as $produto):
-
+                          
                             ?>
 
                           <div class="col-3 p-3">
 
                             <div class="card t100 border-2 border-light ">
-                            <form action="addCarrinho.php" method="POST">
+                            <form action="main-page.php" method="POST">
                                 <input type="hidden" name="idproduto" value="<?=$produto['idprodutos']?>" >
                                 <input type="hidden" name="operacao" value="inserir">
                                 <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
@@ -91,7 +88,7 @@ include "header.php";
                                       </div>                                   
                                       <div class="pe-2 ps-2 align-items-center d-flex justify-content-between align-items-center t100  " style="height: 3rem;">
                                         <a href="produto.php?id=<?=$produto['idprodutos']?>" class="t50 d-flex justify-content-center align-items-center me-2 rounded-3 text-decoration-none text-uppercase buttonBlue p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">saiba mais...</p></a>
-                                        <button type="submit" class="t50 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">ADD ao carrinho</p></button>
+                                        <button type="submit" class="t50 d-flex justify-content-center align-items-center  ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;" onclick="insertIntoCarrinho($produto['idproduto'])"><p class="fs-8 fw-bold m-0 text-center ">ADD ao carrinho</p></button>
                                       </div>
                                 </div>
                               </form>
@@ -107,6 +104,13 @@ include "header.php";
                 </div>
                   
     </main>
+    <script>
+        function insertIntoCarrinho(idProduto){
+          var result ='<php $idProduto = '+ idProduto +'insertIntoCarrinho($idProduto);?>';
+          document.write(result);
+        }
+      </script>
+
 <?php
 include "footer.php"
 ?>

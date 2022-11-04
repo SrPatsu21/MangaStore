@@ -19,21 +19,24 @@
 
                 //require_once "addCarrinho.php";
                 $produtoDAO = new produtoDAO();
-
                 $carrinho = $_SESSION['carrinho']??[];
-                $last_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                var_dump($carrinho);
 
                 foreach ($carrinho as $item):
                     $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
+                    echo '<button type="submit">REMOVER</button>';
+                    var_dump($item['idproduto']);
                 ?>
-                    <div class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
+                    <form action="carrinho.php" class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
 
-                            <div class="me-3 border-end border-end-2 border-dark"> <img src="data:image/png;base64,<?=base64_encode($produtoItem['imagem'])?>" class="smphote" alt=""></div>
-                            <label for="i1tid" class="form-check-label bg-transparent text-dark ms-1"><?= $produtoItem['nome']?></label>
+                        <div class="me-3 border-end border-end-2 border-dark"> <img src="data:image/png;base64,<?=base64_encode($produtoItem['imagem'])?>" class="smphote" alt=""></div>
+                        <label for="i1tid" class="form-check-label bg-transparent text-dark ms-1"><?= $produtoItem['nome']?></label>
                             <!-- quantidade esta em item -->
+                        
+                        <button type="submit" onclick="removeIntoCarrinho($produtoItem['idproduto'])" >REMOVER</button>
 
-                            <a href="addCarrinho.php?idproduto=<?=$item['idproduto']?>&operacao=remover&last_link=<?=$last_link?>" class="">remover</a>
-                    </div>
+                    </form>
+
                 <?php
                 endforeach;
                 ?>
