@@ -20,20 +20,21 @@
                 //require_once "addCarrinho.php";
                 $produtoDAO = new produtoDAO();
                 $carrinho = $_SESSION['carrinho']??[];
-                var_dump($carrinho);
 
                 foreach ($carrinho as $item):
                     $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
-                    echo '<button type="submit">REMOVER</button>';
-                    var_dump($item['idproduto']);
                 ?>
-                    <form action="carrinho.php" class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
+                    <form method="post" class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
 
                         <div class="me-3 border-end border-end-2 border-dark"> <img src="data:image/png;base64,<?=base64_encode($produtoItem['imagem'])?>" class="smphote" alt=""></div>
-                        <label for="i1tid" class="form-check-label bg-transparent text-dark ms-1"><?= $produtoItem['nome']?></label>
-                            <!-- quantidade esta em item -->
-                        
-                        <button type="submit" onclick="removeIntoCarrinho($produtoItem['idproduto'])" >REMOVER</button>
+                        <div class="t100 d-flex justify-content-between align-items-center">
+                            <label class="form-check-label bg-transparent text-dark t40 p-1"><?= $produtoItem['nome']?></label>
+                            <label class="form-check-label bg-transparent text-dark t30 p-1">Volume:<?= $produtoItem['volume']?></label>
+                                <!-- quantidade esta em item -->
+                            
+                            <button type="submit" class="btn btn-outline-danger t30 m-1" onclick="removeIntoCarrinho($produtoItem['idproduto'])">REMOVER</button>
+                        </div>
+
 
                     </form>
 
@@ -61,7 +62,11 @@
                         <div class="d-flex justify-content-between text-center flex-wrap">
 
                             <div class="t45 d-flex align-items-center m-1">
-                                <a href="main-page.php" class="text-decoration-none t100 p1">cancelar</a>
+                                <form action="funcaoCarrinho.php" method="post">
+                                    <input type="hidden" name="operacao" value="limpar">
+                                    <input type="hidden" name="lastUri" value="<?=$_SERVER['REQUEST_URI']?>">
+                                    <button type="sumit" class="text-decoration-none t100 p1">Limpar</button>
+                                </form>
                             </div>
                             <div class="t45 bg-primary rounded-2 d-flex align-items-center m-1">
                                 <a href="pagamento.php" class="link-light text-decoration-none t100 rounded-1 p-1">confirmar</a>
