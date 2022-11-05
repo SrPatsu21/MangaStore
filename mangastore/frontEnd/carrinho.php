@@ -61,14 +61,15 @@
 
                         <div class="d-flex justify-content-between text-center flex-wrap">
 
-                            <div class="t45 d-flex align-items-center m-1">
-                                <form action="funcaoCarrinho.php" method="post">
-                                    <input type="hidden" name="operacao" value="limpar">
-                                    <input type="hidden" name="lastUri" value="<?=$_SERVER['REQUEST_URI']?>">
-                                    <button type="sumit" class="text-decoration-none t100 p1">Limpar</button>
-                                </form>
+                            <form action="funcaoCarrinho.php" class="t30 d-flex align-items-center m-1" method="post">
+                                <input type="hidden" name="operacao" value="limpar">
+                                <input type="hidden" name="lastUri" value="<?=$_SERVER['REQUEST_URI']?>">
+                                <button type="sumit" class="btn btn-primary t100">Limpar</button>
+                            </form>
+                            <div class="t30 bg-primary rounded-2 d-flex align-items-center m-1">
+                                <a href="main-page.php" class="link-light text-decoration-none t100 rounded-1 p-1">Voltar</a>
                             </div>
-                            <div class="t45 bg-primary rounded-2 d-flex align-items-center m-1">
+                            <div class="t30 bg-primary rounded-2 d-flex align-items-center m-1">
                                 <a href="pagamento.php" class="link-light text-decoration-none t100 rounded-1 p-1">confirmar</a>
                             </div>
 
