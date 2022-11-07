@@ -10,31 +10,32 @@ session_start();
             $_SESSION['carrinho'] = $carrinho;
             header ("location:" . $_POST['lastUri']);
 
-            /*dump*/
-            var_dump($_POST['operacao']);
-            echo "<br>";
-            var_dump($_POST['lastUri']);
-            echo "<br>";
-            var_dump($carrinho);
 
-        }
-        if ($_POST['operacao'] == 'limpar') {
+
+        }else if ($_POST['operacao'] == 'limpar') {
+
             $_SESSION['carrinho'] = null;
             header ("location:" . $_POST['lastUri']);
-        }
+            
+        }else if ($_POST['operacao'] == 'remover') {
 
-        if ($_POST['operacao'] == 'remover') {
             $carrinho = $_SESSION['carrinho']??[];
-            $item['idproduto'] = $_POST['idproduto'];
             /*acao*/
-            for ($i=0; $i <= array_key_last($carrinho); $i++) { 
+            for ($i=0; $i <= array_key_last($carrinho); $i++) {
+
                 $item = $carrinho[$i]??null;
-                if ($item != null && $item['idproduto'] == $_POST['idproduto']) {
+                var_dump($carrinho);
+                var_dump($_POST['idproduto']);
+
+                if ($item['idproduto'] == $_POST['idproduto']) {
+                    echo "sobre isso";
+                    var_dump($carrinho[$i]);
                     unset($carrinho[$i]);
+                    echo "a";
                 }
             }
             /*enviar para a session*/  
-            $carrinho[] = $item;
             $_SESSION['carrinho'] = $carrinho;
+            header ("location:" . $_POST['lastUri']);
         }
 ?>

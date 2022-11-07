@@ -34,27 +34,31 @@ if (!isset($_GET['ndpp'])) {
                           $sp = $ndpp*4;
                           $tp = ($ndpp+1)*4;
                               $produtos = $produtoDAO->consultarPorDesconto($sp, $tp);
-                          
+                              /*var_dump($sp, $tp);*/
+                            
+                            if ($produtos == null) {
+                              echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite" style="width: 100%; height:3rem;">Nao ha mais produtos</p>';
+                            }else {
 
-                            foreach ($produtos as $produto):
+                            foreach ($produtos as $produtop):
 
                               ?>
 
                               <div class="col-3 p-3">
                                 <form action="funcaoCarrinho.php" method="post">
                                   <input type="hidden" name="operacao" value="adicionar">
-                                  <input type="hidden" name="idproduto" value="<?=$produto['idprodutos']?>">
+                                  <input type="hidden" name="idproduto" value="<?=$produtop['idprodutos']?>">
                                   <input type="hidden" name="lastUri" value="<?=$_SERVER['REQUEST_URI']?>">
                                   <div class="card t100 border-2 border-light">
-                                    <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produto['imagem'])?>" alt="Imagem de capa do card">
+                                    <img class="imgCard" src="data:image/png;base64,<?=base64_encode($produtop['imagem'])?>" alt="Imagem de capa do card">
                                       <div class="d-flex flex-wrap">
                                             <div class="card-body ch">
-                                              <p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase borderBottomName" style="width: 100%; height:3rem;"><?=$produto["nome"]?></p>
-                                              <p class="fs-6 fw-bold m-1">volume: <?=$produto['volume']?></p>
-                                              <p class="fs-6 fw-bold m-1">Valor: R$<?=$produto['valor']?></p>        
+                                              <p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase borderBottomName" style="width: 100%; height:3rem;"><?=$produtop["nome"]?></p>
+                                              <p class="fs-6 fw-bold m-1">volume: <?=$produtop['volume']?></p>
+                                              <p class="fs-6 fw-bold m-1">Valor: R$<?=$produtop['valor']?></p>        
                                             </div>                                   
                                             <div class="pe-2 ps-2 align-items-center d-flex justify-content-between align-items-center t100  " style="height: 3rem;">
-                                              <a href="produto.php?id=<?=$produto['idprodutos']?>" class="t50 d-flex justify-content-center align-items-center me-2 rounded-3 text-decoration-none text-uppercase buttonBlue p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">saiba mais...</p></a>
+                                              <a href="produto.php?id=<?=$produtop['idprodutos']?>" class="t50 d-flex justify-content-center align-items-center me-2 rounded-3 text-decoration-none text-uppercase buttonBlue p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center ">saiba mais...</p></a>
                                               <button type="sumit" class="t50 d-flex justify-content-center align-items-center ms-2 rounded-3 text-decoration-none text-uppercase buttonRed p-2" style="height: 2em;"><p class="fs-8 fw-bold m-0 text-center">ADD ao carrinho </p></button>
                                             </div>
                                       </div>
@@ -66,6 +70,7 @@ if (!isset($_GET['ndpp'])) {
  
 
                             endforeach;
+                          }
                           ?>
                       
                 </div>
@@ -111,7 +116,10 @@ if (!isset($_GET['ndpp'])) {
 
 
                             $produtos = $produtoDAO->consultarPrincipal($s, $t);
-
+                          
+                          if ($produtos == null) {
+                            echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite" style="width: 100%; height:3rem;">Nao ha mais produtos</p>';
+                          }else {
                           foreach ($produtos as $produto):
                           
                             ?>
@@ -142,6 +150,7 @@ if (!isset($_GET['ndpp'])) {
 
 
                           endforeach;
+                        }
                         ?>
                     
                 </div>

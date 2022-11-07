@@ -24,15 +24,17 @@
                 foreach ($carrinho as $item):
                     $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
                 ?>
-                    <form method="post" class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
-
+                    <form action="funcaoCarrinho.php" method="post" class="mt-3 t100 d-flex justify-content-between align-items-center p-0 border border-2 border-dark rounded-2">
+                            <input type="hidden" name="operacao" value="remover">
+                            <input type="hidden" name="idproduto" value="<?=$produtoItem['idprodutos']?>">
+                            <input type="hidden" name="lastUri" value="<?=$_SERVER['REQUEST_URI']?>">
                         <div class="me-3 border-end border-end-2 border-dark"> <img src="data:image/png;base64,<?=base64_encode($produtoItem['imagem'])?>" class="smphote" alt=""></div>
                         <div class="t100 d-flex justify-content-between align-items-center">
                             <label class="form-check-label bg-transparent text-dark t40 p-1"><?= $produtoItem['nome']?></label>
                             <label class="form-check-label bg-transparent text-dark t30 p-1">Volume:<?= $produtoItem['volume']?></label>
                                 <!-- quantidade esta em item -->
                             
-                            <button type="submit" class="btn btn-outline-danger t30 m-1" onclick="removeIntoCarrinho($produtoItem['idproduto'])">REMOVER</button>
+                            <button type="submit" class="btn btn-outline-danger t30 m-1" >REMOVER</button>
                         </div>
 
 

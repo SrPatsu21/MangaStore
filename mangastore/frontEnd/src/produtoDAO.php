@@ -67,7 +67,7 @@ require_once "funcoes.php";
 
             $conexao = ConexaoBD::getConexao(); 
 
-            $sql = "SELECT * FROM produtos where promocao = 1 limit $s, $t";
+            $sql = "SELECT * FROM produtos where (promocao = 1) limit $s, $t";
 
             $resultado = $conexao->query($sql);
             $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
