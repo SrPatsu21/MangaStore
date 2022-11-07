@@ -116,6 +116,9 @@ main .link-light{background-color: #33024A;}*/
 .bordercarrinho{border-style: solid;border-color: #2a2a68;border-radius: 0.5%;border-width: 5px;}
 .lablerg{border: 0px !important;border-radius: 0px !important;padding: 0.375rem 0.75rem !important;}
 .borderLeftWhite{border-right-color: #F6F6F6 !important; border-style: double !important; border-width: 0px !important;border-right-width: 0px !important;}
+.borderLeft{border-right-width: 0px; border-left-width: 1px; border-top-width: 0px; border-bottom-width: 0px; border-style: solid; border-color: #F6F6F6;}
+.borderRight{border-right-width: 1px; border-left-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-style: solid; border-color: #F6F6F6;}
+
 
 /*table*/
 .tableConsultar:nth-child(odd) {background: #FFFFFF22;}

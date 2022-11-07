@@ -46,7 +46,7 @@
                           }
                         }
                         if ($produtos == null) {
-                          echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite" style="width: 100%; height:3rem;">Nao ha mais produtos</p>';
+                          echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite text-center" style="width: 100%; height:3rem;">Não há mais produtos!</p>';
                         }else {
                           foreach ($produtos as $produto):
 
@@ -82,12 +82,12 @@
                       </div>
                       <!-- ir para proxima pagina -->
                       <div class="t100 d-flex justify-content-center align-items-center mt-auto">
-                                <div class="d-flex justify-content-between align-items-center t10">
+                                <div class="d-flex justify-content-between align-items-center t10 rounded-pill border border-2 px-2">
                                   <!-- volta -->
                                   <form action="" method="get">
                                     <input type="hidden" name="nome" value="<?php if (isset($_GET['nome'])) {echo $_GET['nome'];}else {echo '';}?>">
                                     <input type="hidden" name="idgenero" value="<?php if (isset($_GET['idgenero'])) {echo $_GET['idgenero'];}?>">
-                                    <button class="bg-white border border-1 p-0" style="height: 32px" name="ndp" type="submit" value=" <?php
+                                    <button class="bg-transparent textWhite borderRight" style="height: 32px" name="ndp" type="submit" value=" <?php
                                       if ($ndp <= 0) {
                                         echo $ndp;
                                       }else {
@@ -95,12 +95,12 @@
                                       }?>"><-</button>
                                   </form>
                                   <!-- pagina -->
-                                    <p class="p-1 m-0 bg-white" style="height: 32px"><?= $ndp ?></p>
+                                    <p class="p-1 m-0 bg-transparent border border-0 p-0 textWhite" style="height: 32px"><?= $ndp ?></p>
                                   <!-- proximo -->
                                   <form action="" method="get">
                                     <input type="hidden" name="nome" value="<?php if (isset($_GET['nome'])) {echo $_GET['nome'];}else {echo '';}?>">
                                     <input type="hidden" name="idgenero" value="<?php if (isset($_GET['idgenero'])) {echo $_GET['idgenero'];}?>">
-                                    <button style="height: 32px" class="bg-white border border-1 p-0" name="ndp" type="submit" value="<?= $ndp+1 ?>"> -> </button>
+                                    <button style="height: 32px" class="bg-transparent textWhite borderLeft" name="ndp" type="submit" value="<?= $ndp+1 ?>"> -> </button>
                                   </form>
                                 </div>
                       </div>

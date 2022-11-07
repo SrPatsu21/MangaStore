@@ -23,7 +23,7 @@ if (!isset($_GET['ndpp'])) {
                 <div class=" mt-4 t100 border border-1 border-light"></div>
 
                 <div class=" d-flex justify-content-center align-items-center">
-                  <p class="m-0 fw-bold text-uppercase text-light">em promocao</p>
+                  <p class="m-0 fw-bold text-uppercase text-light">em promoção</p>
                 </div>
 
                 <div class="d-flex row justify-content-start">
@@ -34,10 +34,10 @@ if (!isset($_GET['ndpp'])) {
                           $sp = $ndpp*4;
                           $tp = ($ndpp+1)*4;
                               $produtos = $produtoDAO->consultarPorDesconto($sp, $tp);
-                              /*var_dump($sp, $tp);*/
+                              var_dump($sp, $tp);
                             
                             if ($produtos == null) {
-                              echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite" style="width: 100%; height:3rem;">Nao ha mais produtos</p>';
+                              echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite text-center" style="width: 100%; height:3rem;">Não há mais produtos!</p>';
                             }else {
 
                             foreach ($produtos as $produtop):
@@ -77,11 +77,11 @@ if (!isset($_GET['ndpp'])) {
 
                 <!-- ir para proxima pagina -->
                 <div class="t100 d-flex justify-content-center align-items-center mt-auto">
-                                <div class="d-flex justify-content-between align-items-center t10">
+                                <div class="d-flex justify-content-between align-items-center t10 rounded-pill border border-2 px-2">
                                   <!-- volta -->
                                   <form action="" method="get">
                                     <input type="hidden" name="ndp" value="<?php if (isset($_GET['ndp'])) {echo $_GET['ndp'];} else {echo $ndp;} ?>">
-                                    <button class="bg-white border border-1 p-0" style="height: 32px" name="ndpp" type="submit" value=" <?php
+                                    <button class="bg-transparent textWhite borderRight" style="height: 32px" name="ndpp" type="submit" value=" <?php
                                       if ($ndpp <= 0) {
                                         echo $ndpp;
                                       }else {
@@ -89,11 +89,11 @@ if (!isset($_GET['ndpp'])) {
                                       }?>"><-</button>
                                   </form>
                                   <!-- pagina -->
-                                    <p class="p-1 m-0 bg-white" style="height: 32px"><?= $ndpp ?></p>
+                                    <p class="p-1 m-0 bg-transparent border border-0 p-0 textWhite" style="height: 32px"><?= $ndpp ?></p>
                                   <!-- proximo -->
                                   <form action="" method="get">
                                   <input type="hidden" name="ndp" value="<?php if (isset($_GET['ndp'])) {echo $_GET['ndp'];} else {echo $ndp;} ?>">
-                                    <button style="height: 32px" class="bg-white border border-1 p-0" name="ndpp" type="submit" value="<?= $ndpp+1 ?>"> -> </button>
+                                    <button class="bg-transparent textWhite borderLeft" style="height: 32px" name="ndpp" type="submit" value="<?= $ndpp+1 ?>"> -> </button>
                                   </form>
                                 </div>
                 </div>
@@ -118,7 +118,7 @@ if (!isset($_GET['ndpp'])) {
                             $produtos = $produtoDAO->consultarPrincipal($s, $t);
                           
                           if ($produtos == null) {
-                            echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite" style="width: 100%; height:3rem;">Nao ha mais produtos</p>';
+                            echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite text-center" style="width: 100%; height:3rem;">Não há mais produtos!</p>';
                           }else {
                           foreach ($produtos as $produto):
                           
@@ -156,11 +156,11 @@ if (!isset($_GET['ndpp'])) {
                 </div>
                 <!-- ir para proxima pagina -->
                 <div class="t100 d-flex justify-content-center align-items-center mt-auto">
-                                <div class="d-flex justify-content-between align-items-center t10">
+                                <div class="d-flex justify-content-between align-items-center t10 rounded-pill border border-2 px-2">
                                   <!-- volta -->
                                   <form action="" method="get">
                                     <input type="hidden" name="ndpp" value="<?php if (isset($_GET['ndpp'])) {echo $_GET['ndpp'];} else {echo $ndpp;}?>">
-                                    <button class="bg-white border border-1 p-0" style="height: 32px" name="ndp" type="submit" value=" <?php
+                                    <button class="bg-transparent textWhite borderRight" style="height: 32px" name="ndp" type="submit" value=" <?php
                                       if ($ndp <= 0) {
                                         echo $ndp;
                                       }else {
@@ -168,11 +168,11 @@ if (!isset($_GET['ndpp'])) {
                                       }?>"><-</button>
                                   </form>
                                   <!-- pagina -->
-                                    <p class="p-1 m-0 bg-white" style="height: 32px"><?= $ndp ?></p>
+                                    <p class="p-1 m-0 bg-transparent border border-0 p-0 textWhite" style="height: 32px"><?= $ndp ?></p>
                                   <!-- proximo -->
                                   <form action="" method="get">
                                   <input type="hidden" name="ndpp" value="<?php if (isset($_GET['ndpp'])) {echo $_GET['ndpp'];}  else {echo $ndpp;}?>">
-                                    <button style="height: 32px" class="bg-white border border-1 p-0" name="ndp" type="submit" value="<?= $ndp+1 ?>"> -> </button>
+                                    <button style="height: 32px" class="bg-transparent textWhite borderLeft" name="ndp" type="submit" value="<?= $ndp+1 ?>"> -> </button>
                                   </form>
                                 </div>
                   </div>
