@@ -1,21 +1,29 @@
 <?php
 session_start();
         if ($_POST['operacao'] == 'adicionar') {
+            $operador = true;
             $carrinho = $_SESSION['carrinho']??[];
-            /*acao*/
-            $item['idproduto'] = $_POST['idproduto'];
-            $item["quantidade"] = 1;
-            $carrinho[] = $item;
-            /*enviar para a session*/
-            $_SESSION['carrinho'] = $carrinho;
-            header ("location:" . $_POST['lastUri']);
-
-
+            foreach ($carrinho as $cart){
+                if ($cart['idproduto'] == $_POST['idproduto']) {
+                    $operador = false;
+                }
+            }
+            if ($operador == true) {
+                $item['idproduto'] = $_POST['idproduto'];
+                $item["quantidade"] = 1;
+                $carrinho[] = $item;
+                /*enviar para a session*/
+                $_SESSION['carrinho'] = $carrinho;
+                header ("location:" . $_POST['lastUri']);
+            }else{
+                header ("location:" . $_POST['lastUri']);
+            }
 
         }else if ($_POST['operacao'] == 'limpar') {
 
             $_SESSION['carrinho'] = null;
             header ("location:" . $_POST['lastUri']);
+
             
         }else if ($_POST['operacao'] == 'remover') {
 
@@ -28,10 +36,8 @@ session_start();
                 var_dump($_POST['idproduto']);
 
                 if ($item['idproduto'] == $_POST['idproduto']) {
-                    echo "sobre isso";
                     var_dump($carrinho[$i]);
                     unset($carrinho[$i]);
-                    echo "a";
                 }
             }
             /*enviar para a session*/  

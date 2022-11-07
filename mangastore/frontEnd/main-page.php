@@ -34,7 +34,7 @@ if (!isset($_GET['ndpp'])) {
                           $sp = $ndpp*4;
                           $tp = ($ndpp+1)*4;
                               $produtos = $produtoDAO->consultarPorDesconto($sp, $tp);
-                              var_dump($sp, $tp);
+                              /*var_dump($sp, $tp);*/
                             
                             if ($produtos == null) {
                               echo '<p class="fs-6 fw-bold m-1 overflow-auto text-break text-uppercase textWhite text-center" style="width: 100%; height:3rem;">Não há mais produtos!</p>';

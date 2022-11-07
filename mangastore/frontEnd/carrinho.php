@@ -15,7 +15,7 @@
                     <div class="border border-2 border-dark rounded-2"></div>
                 </div>
                 <!-- sequencia de teste-->
-                <?php
+                <?php 
 
                 //require_once "addCarrinho.php";
                 $produtoDAO = new produtoDAO();
