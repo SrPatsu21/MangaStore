@@ -54,7 +54,15 @@ $_SESSION['idcliente'] = $cliente['idcliente'];
 
             <!--coluna lateral-->
             <div class="col-4 container d-flex flex-column bg-light h100">
+                
+            <div class="t100 mt-2">
 
+            <p class="fs-5 fw-lighter txtCarrinho">
+                sempre que adicionar um item!
+            </p>
+
+            </div>
+            
                 <div class="mb-auto"></div>
 
                 <div class="t100">
