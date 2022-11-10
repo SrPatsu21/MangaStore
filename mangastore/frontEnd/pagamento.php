@@ -60,10 +60,6 @@ $_SESSION['idcliente'] = $cliente['idcliente'];
                 <div class="t100">
 
                         <p class="fs-6 fw-lighter txtCarrinho">
-                           !!! os itens que vc nao deseja mais podem ser desmarcados!!!!
-                        </p>
-
-                        <p class="fs-6 fw-lighter txtCarrinho">
                            valor total = <?= $total ?>
                         </p>
 
