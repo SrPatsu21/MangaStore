@@ -20,6 +20,7 @@
                 //require_once "addCarrinho.php";
                 $produtoDAO = new produtoDAO();
                 $carrinho = $_SESSION['carrinho']??[];
+                $total = 0;
 
                 foreach ($carrinho as $item):
                     $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
@@ -32,6 +33,7 @@
                         <div class="t100 d-flex justify-content-between align-items-center">
                             <label class="form-check-label bg-transparent text-dark t40 p-1"><?= $produtoItem['nome']?></label>
                             <label class="form-check-label bg-transparent text-dark t30 p-1">Volume:<?= $produtoItem['volume']?></label>
+                            <label class="form-check-label bg-transparent text-dark t30 p-1">Valor:<?= $produtoItem['valor']?></label>
                                 <!-- quantidade esta em item -->
                             
                             <button type="submit" class="btn btn-outline-danger t30 m-1" >REMOVER</button>
@@ -41,6 +43,7 @@
                     </form>
 
                 <?php
+                $total += $produtoItem['valor'];
                 endforeach;
                 ?>
 
@@ -55,6 +58,10 @@
 
                         <p class="fs-6 fw-lighter txtCarrinho">
                            !!! os itens que vc nao deseja mais podem ser desmarcados!!!!
+                        </p>
+
+                        <p class="fs-6 fw-lighter txtCarrinho">
+                           valor total = <?= $total ?>
                         </p>
 
                 </div>
