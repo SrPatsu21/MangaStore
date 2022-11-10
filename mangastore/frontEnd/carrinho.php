@@ -93,7 +93,6 @@
     </main>
 
 <?php
-$_SESSION[] =
 include "footer.php";
 ?>
 </html>

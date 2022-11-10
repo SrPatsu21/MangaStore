@@ -5,7 +5,7 @@ include "header.php";
 require_once "src/ClienteDAO.php";
 
 $clienteDAO = new ClienteDAO();
-$cliente = $clienteDAO->consultarCliente('paulo@gmail.com');
+$cliente = $clienteDAO->consultarCliente(1);
 $_SESSION['idcliente'] = $cliente['idcliente'];
 ?>
     
@@ -80,10 +80,9 @@ $_SESSION['idcliente'] = $cliente['idcliente'];
                             <div class="t30 bg-primary rounded-2 d-flex align-items-center m-1">
                                 <a href="carrinho.php" class="link-light text-decoration-none t100 rounded-1 p-1">cancelar</a>
                             </div>
-                            <div class="t30 bg-primary rounded-2 d-flex align-items-center m-1">
-                                <a href="pagamento.php" class="link-light text-decoration-none t100 rounded-1 p-1">confirmar</a>
-                            </div>
-
+                            <form action="finalizarCompra.php" class="t35 d-flex align-items-center m-1">
+                                <button class="btn btn-primary t100">Confirmar</button>
+                            </form>
                         </div>
 
                 </div>
