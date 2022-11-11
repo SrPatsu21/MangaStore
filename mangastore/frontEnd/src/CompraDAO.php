@@ -8,14 +8,19 @@ class CompraDAO{
         $conexao = ConexaoBD::getConexao();
 
         /*consulta valor*/
-        foreach ($dados as $v){
+        $idproduto = $dados['carrinho'];
+        $valortotal=0;
+        foreach ($idproduto as $v){
             $produtoItem = $produtoDAO->consultarPorID($v['idproduto']);
-            $valortotal = $produtoItem['valor'];
+            $valortotal += $produtoItem['valor'];
         }
 
         /*setar variaveis*/
         $data = date('Y-m-d H:1');
-        $sql = "inset into compras (idcliente, data, valortotal) values ('{$dados['idcliente']}', '$data', '$valortotal'";
+        var_dump($dados);
+        echo "-------------------------------";
+        var_dump($data, $valortotal);
+        $sql = "insert into compras(idcliente, data, valortotal) values('{$dados['idcliente']}', '$data', '$valortotal');";
         
         /*inserir no banco*/
         $conexao->exec($sql);
@@ -27,7 +32,8 @@ class CompraDAO{
 
         /*inserir no banco*/
         foreach($carrinho as $item){
-            $sql = "insert into bilbioteca(idcompra, idcliente, idproduto, valor) values('$idcompra','{$dados['idcliente']}','{$item['idproduto']}', '{$item['valor']}')";
+            $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
+            $sql = "insert into biblioteca(idcompra, idcliente, idproduto, valor) values('$idcompra','{$dados['idcliente']}','{$item['idproduto']}', '{$produtoItem['valor']}')";
             $conexao->exec($sql);
         }
     }

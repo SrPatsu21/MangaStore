@@ -10,7 +10,6 @@ session_start();
             }
             if ($operador == true) {
                 $item['idproduto'] = $_POST['idproduto'];
-                $item["quantidade"] = 1;
                 $carrinho[] = $item;
                 /*enviar para a session*/
                 $_SESSION['carrinho'] = $carrinho;
