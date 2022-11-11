@@ -2,11 +2,6 @@
 $title = "pagamento";
 include "header.php";
 
-require_once "src/ClienteDAO.php";
-
-$clienteDAO = new ClienteDAO();
-$cliente = $clienteDAO->consultarCliente(1);
-$_SESSION['idcliente'] = $cliente['idcliente'];
 ?>
     
     <main style="height: 95vh;" class=" t100 d-flex justify-content-center align-items-center py-3">

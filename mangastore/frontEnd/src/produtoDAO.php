@@ -87,6 +87,17 @@ require_once "funcoes.php";
              
              return $produtos;
          }
+         function consultarNabiblioteca($id) {
+            //conectar 
+            $conexao = ConexaoBD::getConexao(); 
+
+            $sql = "SELECT * FROM mangastore.biblioteca where idcliente = '$id';";
+
+            $resultado = $conexao->query($sql);
+            $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $produtos;
+         }
 
     }
 

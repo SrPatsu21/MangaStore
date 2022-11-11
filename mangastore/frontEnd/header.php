@@ -2,7 +2,11 @@
 
 session_start();
 require_once "src/produtoDAO.php";
+require_once "src/ClienteDAO.php";
 
+$clienteDAO = new ClienteDAO();
+$cliente = $clienteDAO->consultarCliente(1);
+$_SESSION['idcliente'] = $cliente['idcliente'];
 
 $produtoDAO = new produtoDAO();
 ?>
@@ -35,27 +39,31 @@ $produtoDAO = new produtoDAO();
                     </div> 
 
                     <div class="t33 d-flex align-items-center justify-content-center">
+                    
+                    <form action="pesquisa.php" class="t100">
 
-                    <form class="d-flex align-items-center justify-content-between t100 border border-light border-2 rounded-pill" action="pesquisa.php">
-                        <input class="m-0 t90 bg-transparent text-light fw-bold ps-3 borderLeftWhite" type="search " name="nome" placeholder="PESQUISAR... " value="<?php if (isset($_GET['nome'])) {echo    $_GET['nome'];}else {echo '';}?>" aria-label="Search">
-                        <select class="h100 bg-transparent" name="idgenero" id="idgenero">
-                              <?php
-                                    require_once "src/GeneroDAO.php";
-                                    $generoDAO = new generoDAO();
-                                    $idsgenero = $generoDAO->consultarGeneros();
-                                    echo "<option class='text-danger' value=''>-sem genero-</option>";
-                                  foreach($idsgenero as $genero){
+                        <div class="d-flex align-items-center justify-content-between t100 border border-light border-2 rounded-pill p-2">
+                            <input class="m-0 t90 bg-transparent text-light fw-bold ps-3 borderLeftWhite" type="search " name="nome" placeholder="PESQUISAR... " value="<?php if (isset($_GET['nome'])) {echo    $_GET['nome'];}else {echo '';}?>" aria-label="Search">
+                            <select class="h100" name="idgenero" id="idgenero">
+                                    <?php
+                                            require_once "src/GeneroDAO.php";
+                                            $generoDAO = new generoDAO();
+                                            $idsgenero = $generoDAO->consultarGeneros();
+                                            echo "<option class='text-danger' value=''>-sem genero-</option>";
+                                        foreach($idsgenero as $genero){
 
-                                        if ($genero['idgeneros'] == $_GET['idgenero']) {
-                                            echo "<option class='text-dark' selected value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                                if ($genero['idgeneros'] == $_GET['idgenero']) {
+                                                    echo "<option class='text-dark' selected value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
 
-                                        }else {
-                                            echo "<option class='text-dark' value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                                }else {
+                                                    echo "<option class='text-dark' value='{$genero['idgeneros']}'>{$genero['genero']}</option>";
+                                                }
                                         }
-                                }
-                              ?>
-                          </select>
-                        <button class="bg-transparent border-0 t10 d-flex align-items-center justify-content-center " type="submit"><img src="../img/principal/search.svg" class="" alt=""></button>
+                                    ?>
+                            </select>
+                            <button class="bg-transparent border-0 t10 d-flex align-items-center justify-content-center " type="submit"><img src="../img/principal/search.svg" class="" alt=""></button>
+                        </div>
+                      
                     </form>
 
                     </div>
@@ -63,7 +71,7 @@ $produtoDAO = new produtoDAO();
                     <div class="d-flex align-items-center justify-content-end me-5 t33">
 
                     <button onclick="xtroll()" class="buttonsWhite fs-4 fw-strong text-uppercase logofamily text-decoration-none bg-transparent border-0 me-2">troll</button>
-
+                    <a href="biblioteca.php"><img src="../img/principal/biblioteca.svg" alt="carrinho" class="icon me-3"></a>
                     <a href="carrinho.php"><img src="../img/principal/car.svg" alt="carrinho" class="icon me-3"></a>
 
                     <li class="nav-item dropdown me-3">

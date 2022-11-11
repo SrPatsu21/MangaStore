@@ -16,8 +16,6 @@ if (!isset($_GET['ndpp'])) {
 
     <main class="container mt-3 text-dark mb-3" style="min-height: 80vh;">
 
-
-
                 <!-- em promosao-->
 
                 <div class=" mt-4 t100 border border-1 border-light"></div>
