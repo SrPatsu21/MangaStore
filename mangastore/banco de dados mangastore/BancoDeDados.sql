@@ -1,4 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `mangastore` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `mangastore`;
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: mangastore
 -- ------------------------------------------------------
@@ -16,6 +18,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `biblioteca`
+--
+
+DROP TABLE IF EXISTS `biblioteca`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `biblioteca` (
+  `idcompra` int NOT NULL,
+  `idcliente` int NOT NULL,
+  `idproduto` int NOT NULL,
+  `data` varchar(45) DEFAULT NULL,
+  `valor` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `biblioteca`
+--
+
+LOCK TABLES `biblioteca` WRITE;
+/*!40000 ALTER TABLE `biblioteca` DISABLE KEYS */;
+/*!40000 ALTER TABLE `biblioteca` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cliente`
 --
 
@@ -29,7 +56,7 @@ CREATE TABLE `cliente` (
   `endereco` varchar(255) DEFAULT NULL,
   `cep` varchar(8) DEFAULT NULL,
   PRIMARY KEY (`idcliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +65,33 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'paulo','123','abc paulista','PAULO');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `compras`
+--
+
+DROP TABLE IF EXISTS `compras`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `compras` (
+  `idcompras` int NOT NULL AUTO_INCREMENT,
+  `idcliente` int NOT NULL,
+  `valortotal` float NOT NULL,
+  `data` varchar(45) NOT NULL,
+  PRIMARY KEY (`idcompras`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `compras`
+--
+
+LOCK TABLES `compras` WRITE;
+/*!40000 ALTER TABLE `compras` DISABLE KEYS */;
+/*!40000 ALTER TABLE `compras` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -122,10 +175,6 @@ LOCK TABLES `usuarios` WRITE;
 INSERT INTO `usuarios` VALUES (9,'admin','202cb962ac59075b964b07152d234b70');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'mangastore'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -136,4 +185,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-13 22:38:16
+-- Dump completed on 2022-11-11 14:22:33
