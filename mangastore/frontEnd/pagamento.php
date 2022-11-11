@@ -58,7 +58,7 @@ $_SESSION['idcliente'] = $cliente['idcliente'];
             <div class="t100 mt-2">
 
             <p class="fs-5 fw-lighter txtCarrinho">
-                sempre que adicionar um item!
+            recarregue a apgina sempre que adicionar um item!
             </p>
 
             </div>
@@ -80,7 +80,8 @@ $_SESSION['idcliente'] = $cliente['idcliente'];
                             <div class="t30 bg-primary rounded-2 d-flex align-items-center m-1">
                                 <a href="carrinho.php" class="link-light text-decoration-none t100 rounded-1 p-1">cancelar</a>
                             </div>
-                            <form action="finalizarCompra.php" class="t35 d-flex align-items-center m-1">
+                            <form action="finalizarCompra.php" method="post" class="t35 d-flex align-items-center m-1">
+                                <input type="hidden" name="lastUri" value="<?=$_SERVER['REQUEST_URI']?>">
                                 <button class="btn btn-primary t100">Confirmar</button>
                             </form>
                         </div>

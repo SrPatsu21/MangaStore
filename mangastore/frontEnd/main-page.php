@@ -32,7 +32,7 @@ if (!isset($_GET['ndpp'])) {
 
                           <?php
                           $sp = $ndpp*4;
-                          $tp = ($ndpp+1)*4;
+                          $tp = 4;
                               $produtos = $produtoDAO->consultarPorDesconto($sp, $tp);
                               /*var_dump($sp, $tp);*/
                             
@@ -112,7 +112,7 @@ if (!isset($_GET['ndpp'])) {
 
                         <?php
                         $s = $ndp*8;
-                        $t = ($ndp+1)*8;
+                        $t = 8;
 
 
                             $produtos = $produtoDAO->consultarPrincipal($s, $t);

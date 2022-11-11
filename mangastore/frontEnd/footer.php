@@ -30,7 +30,7 @@
             var urlParams = new URLSearchParams(window.location.search);
             var msg = urlParams.get('msg');
             if (msg == 1) {
-                window.alert("manga cadastrado")
+                window.alert("item(s) comprado")
             }
         </script>
     </body>

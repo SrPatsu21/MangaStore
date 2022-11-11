@@ -5,10 +5,5 @@
     $compraDAO = new CompraDAO();
     $compraDAO->registrarCompra($_SESSION);
 
-?>
-
-<h1>sua compra foi realizada</h1>
-
-<?php
-    include "footer.php"
+    header ("location: main-page.php?msg=1");
 ?>

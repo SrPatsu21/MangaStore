@@ -7,34 +7,37 @@ class CompraDAO{
         $produtoDAO = new produtoDAO();
         $conexao = ConexaoBD::getConexao();
 
-        /*consulta valor*/
-        $idproduto = $dados['carrinho'];
-        $valortotal=0;
-        foreach ($idproduto as $v){
-            $produtoItem = $produtoDAO->consultarPorID($v['idproduto']);
-            $valortotal += $produtoItem['valor'];
-        }
+        if ($dados['carrinho'] != null) {
 
-        /*setar variaveis*/
-        $data = date('Y-m-d H:1');
-        var_dump($dados);
-        echo "-------------------------------";
-        var_dump($data, $valortotal);
-        $sql = "insert into compras(idcliente, data, valortotal) values('{$dados['idcliente']}', '$data', '$valortotal');";
-        
-        /*inserir no banco*/
-        $conexao->exec($sql);
+            /*consulta valor*/
+            $idproduto = $dados['carrinho'];
+            $valortotal=0;
+            foreach ($idproduto as $v){
+                $produtoItem = $produtoDAO->consultarPorID($v['idproduto']);
+                $valortotal += $produtoItem['valor'];
+            }
 
-        /*inserir na biblioteca*/
-        $idcompra = $conexao->lastInsertId();
-        /*definir variavel*/
-        $carrinho = $dados['carrinho'];
-
-        /*inserir no banco*/
-        foreach($carrinho as $item){
-            $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
-            $sql = "insert into biblioteca(idcompra, idcliente, idproduto, valor) values('$idcompra','{$dados['idcliente']}','{$item['idproduto']}', '{$produtoItem['valor']}')";
+            /*setar variaveis*/
+            $data = date('Y-m-d H:1');
+            $sql = "insert into compras(idcliente, data, valortotal) values('{$dados['idcliente']}', '$data', '$valortotal');";
+            
+            /*inserir no banco*/
             $conexao->exec($sql);
+
+            /*inserir na biblioteca*/
+            $idcompra = $conexao->lastInsertId();
+            /*definir variavel*/
+            $carrinho = $dados['carrinho'];
+
+            /*inserir no banco*/
+            foreach($carrinho as $item){
+                $produtoItem = $produtoDAO->consultarPorID($item['idproduto']);
+                $sql = "insert into biblioteca(idcompra, idcliente, idproduto, valor) values('$idcompra','{$dados['idcliente']}','{$item['idproduto']}', '{$produtoItem['valor']}')";
+                $conexao->exec($sql);
+            }
+            $_SESSION['carrinho'] = null;
+            
         }
+        
     }
 }

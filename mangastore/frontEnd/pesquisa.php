@@ -28,7 +28,7 @@
                         
                         <?php
                         $s = $ndp*8;
-                        $t = ($ndp+1)*8;
+                        $t = 8;
 
                         if (isset($_GET['nome']) && $_GET['nome']!= null){
                            
