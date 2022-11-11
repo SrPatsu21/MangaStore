@@ -26,4 +26,11 @@
           </footer>
       <script src="../js/bootstrap.bundle.min.js"></script>
       <script src="../js/rotate.js"></script> 
+      <script>
+            var urlParams = new URLSearchParams(window.location.search);
+            var msg = urlParams.get('msg');
+            if (msg == 1) {
+                window.alert("item(s) comprado")
+            }
+        </script>
     </body>

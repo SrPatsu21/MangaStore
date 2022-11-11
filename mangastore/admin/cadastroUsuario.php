@@ -16,7 +16,7 @@ if (isset($_POST['login'])){
         }
         
     }else {
-        header("Location:cadastrarAdmin.php?msg=2");
+        header("Location:carrinho.php");
     }
 }
 ?> 

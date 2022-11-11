@@ -66,13 +66,6 @@ include "header.php";
                     </label>
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input bg-gray3" name="fisico" type="checkbox" value="1" id="idfisico">
-                    <label class="form-check-label bg-gray2" for="idfisico">
-                    Fisico
-                    </label>
-                </div>
-
                 <div class="d-flex justify-content-between m-2">
                 <a role="button" href="indexAdmin.php" class="bg-white btn btn-outline-danger m-1 t40">Sair</a>
                 <button type="submit" formaction="cadastraproduto.php" class="bg-white btn btn-outline-success m-1 t40">Cadastrar</button>

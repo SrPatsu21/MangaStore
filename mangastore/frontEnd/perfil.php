@@ -60,3 +60,23 @@ include "footer.php";
 ?>
 </html>
 
+$carrinho = $_SESSION['carrinho']??[];
+            /*acao*/
+            for ($i=0; $i <= array_key_last($carrinho); $i++) { 
+                $item = $carrinho[$i]??null;
+                var_dump($item['idproduto']);
+                if ($item != null && $item['idproduto'] == $_POST['idproduto']) {
+                    $carrinho[$i] = null;
+                }
+            }
+            /*enviar para a session*/  
+            $carrinho[] = $item;
+            $_SESSION['carrinho'] = $carrinho;
+
+                        /*dump*/
+                        var_dump($_POST['operacao']);
+                        echo "<br>";
+                        var_dump($_POST['lastUri']);
+                        echo "<br>";
+                        var_dump($carrinho);
+

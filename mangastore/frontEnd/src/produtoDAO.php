@@ -67,7 +67,7 @@ require_once "funcoes.php";
 
             $conexao = ConexaoBD::getConexao(); 
 
-            $sql = "SELECT * FROM produtos where promocao = 1 limit $s, $t";
+            $sql = "SELECT * FROM produtos where (promocao = 1) limit $s, $t";
 
             $resultado = $conexao->query($sql);
             $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
@@ -86,6 +86,17 @@ require_once "funcoes.php";
              $produtos = $resultado->fetch(PDO::FETCH_ASSOC);
              
              return $produtos;
+         }
+         function consultarNabiblioteca($id) {
+            //conectar 
+            $conexao = ConexaoBD::getConexao(); 
+
+            $sql = "SELECT * FROM mangastore.biblioteca where idcliente = '$id';";
+
+            $resultado = $conexao->query($sql);
+            $produtos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $produtos;
          }
 
     }

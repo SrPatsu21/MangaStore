@@ -59,9 +59,9 @@ require_once "funcoes.php";
 
             //sql
 
-            $sql = "insert into produtos (nome, autor, dataLancamento, volume, descricao, valor, imagem, promocao, idgenero, fisico)
+            $sql = "insert into produtos (nome, autor, dataLancamento, volume, descricao, valor, imagem, promocao, idgenero)
                     values ('{$dado['nome']}','{$dado['autor']}','{$dado['dataLancamento']}','{$dado['volume']}','{$dado['descricao']}',
-                    '{$dado['valor']}','{$imagem}','{$dado['promocao']}','{$dado['idgenero']}','{$dado['fisico']}')";
+                    '{$dado['valor']}','{$imagem}','{$dado['promocao']}','{$dado['idgenero']}')";
 
             //echo $sql;
 
